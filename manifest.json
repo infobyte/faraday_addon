@@ -1,0 +1,27 @@
+{
+  "description": "Addon para agregar vulnerabilidades a Faraday desde el propio browser",
+  "manifest_version": 2,
+  "name": "Faraddon",
+  "version": "1.0",
+
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "<all_urls>"
+  ], 
+
+  "icons": {
+    "48": "icons/download.png"
+  },
+
+  "browser_action": {
+    "default_icon": "button/geo-19.png",
+    "default_title": "Faraday requester",
+    "default_popup": "popup/last_requests.html"
+  },
+
+  "background": {
+    "scripts": ["background.js", "fapi.js"]
+  }
+}
