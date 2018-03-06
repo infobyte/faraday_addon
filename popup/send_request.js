@@ -116,8 +116,7 @@ function sendToFaraday(page){
 			severity	     = $('#severity')[0].value;
 			host_request     = $('#request')[0].value;
 			host_response    = $('#response')[0].value;
-			references		 = $('#references')[0].value;
-			console.log(references);
+			references		 = $('#references')[0].value == "" ? [] : $('#references')[0].value.split(',');
 
 			message = page.createVuln(name, vuln_data, description, resolution, easeofresolution, host_request, host_response, severity, service_id, request.method, request.pathname, getHost(), request.params, references);
 		}
