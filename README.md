@@ -1,9 +1,23 @@
 # FARADDON
 
-## Que es Faraddon?
+Que es Faraddon?
+--
 
-### Faraddon es un simple addon para reportar vulnerabilidades desde el propio browser.
+Faraddon es un simple addon para reportar vulnerabilidades desde el propio browser.
 
-## Compatibilidad
+Compatibilidad
+--
 
-### Firefox
+Hasta el momento Faraddon solo es compatible con Firefox Quantum.
+
+Instalación
+--
+
+```
+$ git clone https://majinbuu.infobyte.lan/fedef/faraddon.git
+
+```
+
+* En la barra de busqueda de Firefox escriba *about:debugging*.
+
+* Seleccion cualquier fichero dentro del directorio donde ha clonado faraddon.
