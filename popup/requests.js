@@ -46,11 +46,7 @@ function onGot(page) {
 				$("#resume").append(
 					$("<tr>").append($("<td>").text(page.requests[key].method))
 						.append($("<td>").html('<a target="_blank" href="' + page.requests[key].url + '">' + page.requests[key].url + '</a>'))
-						.append($("<td>").text(" "))
 						.append($("<td>").append(
-						$("<button>",{class: "btn btn-default btn-sm"}).append($("<i>",{class:"fa fa-search"})).click(
-									function (event) { viewRequestAndResponse(key); })
-									).append(
 								$("<button>",{class: "btn btn-default btn-sm"}).append($("<i>",{class:"fa fa-send"})).click(
 								function (event) { sendRequestAndResponse(key); })
 							)
