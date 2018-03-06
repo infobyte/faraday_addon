@@ -20,4 +20,6 @@ $ git clone https://majinbuu.infobyte.lan/fedef/faraddon.git
 
 * En la barra de busqueda de Firefox escriba **about:debugging**.
 
+* Click en el boton **Load Temporary Add-on**
+
 * Seleccione cualquier fichero dentro del directorio donde ha clonado **Faraddon**.
