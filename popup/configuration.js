@@ -41,8 +41,11 @@ function Connect(page){
 		}
 		$("#message").html('');
 		$("#workspaces-list").html('<label for="comment">Workspaces:</label><select class="form-control" id="workspace">' + options + '</select>');
-		$("#buttons").html('<button type="button" id="save" class="btn btn-default btn-sm"><i class="fa fa-send"></i>Save</button><button type="button" id="cancel" class="btn btn-default btn-sm"><i class="fa fa-cancel"></i>Cancel</button>');
+		$("#buttons").html('<button type="button" id="save" class="btn btn-default btn-sm"><i class="fa fa-send"></i>Save</button>');
 		$('#save').bind('click', function(){ saveConfig();});
+		$('#scope').html('<div class="form-group"><label for="comment">Add scope:</label><input class="form-control" id="scope" type="text" placeholder="Add target to scope"></div>');
+		$("#button_scope").html("<div class='form-group'><label for='comment'><br/></label><button type='button' id='add_scope' class='form-control btn btn-default btn-sm'><i class='fa fa-send'></i>Add</button></div>");
+
 	}
 	else if(ws != false && ws.length == 0){
 		$("#message").html('<div id="message" class="alert alert-danger">No se encontraron wokspaces en el servidor</div>');
