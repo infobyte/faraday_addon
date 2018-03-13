@@ -97,15 +97,14 @@ function getUrlParams(){
 }
 
 function sendToFaraday(page){
-	error = '<div class="alert alert-danger"><strong>ERROR!</strong> Ocurrio un error interno en el servidor, asegurese de que aun se encuentra activo.</div>';
 	host_id = page.createHost(request.ip, getHost(), '');
 	if(!host_id){
-    	message = error;
+    	message = alerts.internalErrorServer;
     }
 	else{
 		service_id = page.createService(request.statusLine.split('/')[0].toLowerCase(), getPort(), host_id);
 		if(!service_id){
-			message = error;		
+			message = alerts.internalErrorServer;		
 		}
 		else{
 			name 			 = $('#name')[0].value;
@@ -212,19 +211,19 @@ function onSuccess(page) {
 					$('#header-message').html('');
 					enableInputs();
 					if(!page.checkIsWorkspaceIsValid()){
-						disableInputs('El workspace no existe!.'); //Workspace invalido
+						disableInputs(alerts.workspaceNoExist); //Workspace invalido
 						$('#message').html('');
 					}
 				}
 				else{
-					disableInputs('El servidor no esta activo o aun no ha iniciado sesion'); // Servidor caido o no esta logueado
+					disableInputs(alerts.internalErrorServer2); // Servidor caido o no esta logueado
 					$('#message').html('');
 				}
 
 			}
 		}	
 		catch{
-			disableInputs('No se seteo data en la config'); // No se seteó data en la config
+			disableInputs(alerts.noConfigData); // No se seteó data en la config
 
 		}
 	}

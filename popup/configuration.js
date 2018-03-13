@@ -57,13 +57,13 @@ function Connect(page){
 		}
 	}
 	else if(ws != false && ws.length == 0){
-		$("#message").html('<div id="message" class="alert alert-danger">No se encontraron wokspaces en el servidor</div>');
+		$("#message").html(alerts.noWorkspaces);
 		$("#workspaces-list").html('');
 		$("#buttons").html('');
 		$('#scope').html('');
 	}
 	else if(!ws){
-		$("#message").html('<div id="message" class="alert alert-danger">Ocurrio un error al conectar al servidor</div>');
+		$("#message").html(alerts.errorConnectionServer);
 		$("#workspaces-list").html('');
 		$("#buttons").html('');
 		$('#scope').html('');

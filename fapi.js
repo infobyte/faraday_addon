@@ -2,6 +2,10 @@
 
 var xhttp = new XMLHttpRequest();
 
+var alerts = {'internalErrorServer': '<div class="alert alert-danger"><strong>ERROR!</strong> An internal error occurred on the server, make sure you have logged in or are still active.</div>',
+			  'messageAddVuln': '<div class="alert alert-success"><strong>Success!</strong> The vulnerability has been added to Faraday.</div>',
+			 };
+
 var faraday_api = null;
 var workspace 	= null;
 
@@ -211,13 +215,13 @@ function  createVuln(name, vuln_data, description, resolution, easeofresolution,
 		vuln = JSON.parse(addVuln(name, vuln_data, description, resolution, easeofresolution, request, response, severity, service_id, method, path, website, params, refs));
 	}
 	catch{
-		return '<div class="alert alert-danger"><strong>ERROR!</strong> Ocurrio un error interno en el servidor, asegurese de que aun se encuentra activo.</div>';
+		return alert.internalErrorServer;
 	}	
 	try{
     	message = vuln.message.indexOf('Existing value for unique columns') == 0 ? vuln.message : vuln.message;
-    	return '<div class="alert alert-danger"><strong>ERROR!</strong>' + message + '</div>';
+    	return '<div class="alert alert-danger"><strong>ERROR! </strong>' + message + '</div>';
   	}
 	catch{
-    	return '<div class="alert alert-success"><strong>Success!</strong> La vulnerabilidad ah sido agregada a faraday</div>';
+    	return alert.messageAddVuln;
 	}
 }

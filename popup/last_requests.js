@@ -49,7 +49,7 @@ function onGot(page) {
 		$('#resume-table').append('</tbody></table>');
 	}
 	else{
-		$('#resume-table').html('<div class="alert alert-info">No hay requests aun.</div>');
+		$('#resume-table').html(alerts.noRequestsFound);
 	}		
 }
 
