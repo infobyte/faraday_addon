@@ -1,5 +1,6 @@
 var ws_selected = null;
 var oldState = null;
+var scope = null;
 
 function saveData(object){
 	let setting = browser.storage.local.set({object});
@@ -15,16 +16,22 @@ function onError(error){
   console.log(`Error: ${error}`);
 }
 
-function saveConfig(){
+function saveConfig(page){
 	server	   = $('#server')[0].value;
 	workspace  = $('#workspace')[0].value;
-	conf       = { server: server, workspace: workspace };
+	addscope   = $('#addscope')[0].value;
+	conf       = { server: server, workspace: workspace, scope: addscope };
 	saveData(conf);
+	page.target = escapeRegExp(addscope);
 }
 
 function onRequestError(error) {
 	console.log("Error");
 	console.log(error);
+}
+
+function escapeRegExp(string){
+    return string.replace(/([.+?^${}()|\[\]\/\\])/g, "\\$1").replace(/\*/g, "\.\*");
 }
 
 function Connect(page){
@@ -41,21 +48,25 @@ function Connect(page){
 		}
 		$("#message").html('');
 		$("#workspaces-list").html('<label for="comment">Workspaces:</label><select class="form-control" id="workspace">' + options + '</select>');
+		$('#scope').html('<div class="form-group"><label for="comment">Add scope:</label><input class="form-control" id="addscope" type="text" value="" placeholder="Add target to scope"></div>');
 		$("#buttons").html('<button type="button" id="save" class="btn btn-default btn-sm"><i class="fa fa-send"></i>Save</button>');
-		$('#save').bind('click', function(){ saveConfig();});
-		$('#scope').html('<div class="form-group"><label for="comment">Add scope:</label><input class="form-control" id="scope" type="text" placeholder="Add target to scope"></div>');
-		$("#button_scope").html("<div class='form-group'><label for='comment'><br/></label><button type='button' id='add_scope' class='form-control btn btn-default btn-sm'><i class='fa fa-send'></i>Add</button></div>");
+		$('#save').bind('click', function(){ saveConfig(page);});
 
+		if(scope != null){
+			$('#addscope').val(scope);
+		}
 	}
 	else if(ws != false && ws.length == 0){
 		$("#message").html('<div id="message" class="alert alert-danger">No se encontraron wokspaces en el servidor</div>');
 		$("#workspaces-list").html('');
 		$("#buttons").html('');
+		$('#scope').html('');
 	}
 	else if(!ws){
 		$("#message").html('<div id="message" class="alert alert-danger">Ocurrio un error al conectar al servidor</div>');
 		$("#workspaces-list").html('');
 		$("#buttons").html('');
+		$('#scope').html('');
 	}
 }
 
@@ -76,6 +87,8 @@ function onSuccessConfig(page){
 
 	function onGot(item){
 		$('#server').val(item.object.server);
+		scope = item.object.scope;
+		page.target = escapeRegExp(scope);
   		ws_selected = item.object.workspace;
 		if(ws_selected != null){
 			Connect(page);
