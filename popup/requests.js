@@ -34,7 +34,7 @@ function onGot(page) {
 			showTable(page);
 		}
 
-	}, 3000);
+	}, 1000);
 
 	function showTable(page){
 
