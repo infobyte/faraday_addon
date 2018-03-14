@@ -17,6 +17,15 @@ function sendRequestAndResponse(requestId) {
 
 }
 
+function setLimitUrl(url){
+	if (url.length > 50){
+		return url.substring(0, 50) + "...";
+	}
+	else{
+		return url;
+	}
+}
+
 function onGot(page) {
 	getData(onData);
 
@@ -33,7 +42,7 @@ function onGot(page) {
 			count += 1;
 			$("#resume").append(
 				$("<tr>").append($("<td>").text(page.requests[key].method))
-					.append($("<td>").html('<a target="_blank" href="' + page.requests[key].url + '">' + page.requests[key].url.substr(0, 20) + '[...]</a>'))
+					.append($("<td>").html('<a target="_blank" href="' + page.requests[key].url + '">' + setLimitUrl(page.requests[key].url) + '</a>'))
 					.append($("<td>").append(
 							$("<button>",{class: "btn btn-default btn-sm"}).append($("<i>",{class:"fa fa-send"})).click(
 							function (event) { sendRequestAndResponse(key); })
