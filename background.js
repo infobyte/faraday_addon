@@ -15,6 +15,7 @@
 */
 
 var target = "";
+var urls = "*://*/*";
 var requests = {};
 var tabId = 0;
 var requests_tmp = {};
@@ -86,18 +87,18 @@ browser.tabs.onActivated.addListener(handleActivated);
 
 browser.webRequest.onBeforeRequest.addListener( //Este evento solo se ejecuta en el main_frame
  getRequestAndResponseBody,
- {urls: [target], types: ["main_frame", "xmlhttprequest"]},
+ {urls: [urls], types: ["main_frame", "xmlhttprequest"]},
  ["blocking", "requestBody"]
 );
 
 browser.webRequest.onBeforeSendHeaders.addListener( // Evento para caputar los request headers
   getResquestHeaders,
-  {urls: [target], types: ["main_frame", "xmlhttprequest"]},
+  {urls: [urls], types: ["main_frame", "xmlhttprequest"]},
   ["blocking", "requestHeaders"]
 );
 
 browser.webRequest.onCompleted.addListener( // Una vez el request esta completo, podemos capturar los response headers
   getResponseHeaders,
-  {urls: [target], types: ["main_frame", "xmlhttprequest"]},
+  {urls: [urls], types: ["main_frame", "xmlhttprequest"]},
   ["responseHeaders"]
 );
