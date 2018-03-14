@@ -14,7 +14,7 @@
 
 */
 
-var target = "*://*/*";
+var target = "";
 var requests = {};
 var tabId = 0;
 var requests_tmp = {};
