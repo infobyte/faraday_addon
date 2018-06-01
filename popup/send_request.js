@@ -171,6 +171,15 @@ function onSuccess(page) {
 		}
 	}
 
+	$("#tags").click(function(){
+		j_vuln = page.getVulnerabilitiesTemplates();
+		for(i = 0; i < j_vuln.length; i++){
+			vuln = j_vuln[i].doc;
+			vulnerabilities_names[i] = vuln.name;
+			vulnerabilities[vuln.name] = {'name': vuln.name, 'description': vuln.description, 'resolution': vuln.resolution, 'exploitation': vuln.exploitation, 'references': vuln.refs};
+		}	
+	});
+
 	setInterval(function(){
 
 		var estadoActual = page.info();
@@ -178,17 +187,9 @@ function onSuccess(page) {
 			estadoAnterior = estadoActual;
 			getData(onData);
 		}
-
-		/*j_vuln = page.getVulnerabilitiesTemplates();
-		for(i = 0; i < j_vuln.length; i++){
-			vuln = j_vuln[i].doc;
-			vulnerabilities_names[i] = vuln.name;
-			vulnerabilities[vuln.name] = {'name': vuln.name, 'description': vuln.description, 'resolution': vuln.resolution, 'exploitation': vuln.exploitation, 'references': vuln.refs};
-		}*/
-
 	}, 4000); //Checkea el estado del servidor cada 2 seg, si se cae vuelve a cargar
 
-	/*$( function() {
+	$( function() {
     
     $( "#tags" ).autocomplete({
       source: vulnerabilities_names,
@@ -198,7 +199,7 @@ function onSuccess(page) {
         autoCompleteInputs(ui.item.value);
     		}
     	});
-  	} );*/
+  	} );
 
 	function onData(item){
 
@@ -241,7 +242,6 @@ function onRequestError(error) {
 
 $(document).ready(function() {
 	requestNumber = getUrlParameter('requestId');
-
 	var getting = browser.runtime.getBackgroundPage();
 	getting.then(onSuccess, onRequestError);	
 });
