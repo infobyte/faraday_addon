@@ -29,14 +29,18 @@ function logStorageChange(changes, area) {
   if(changeItem[0] == "power"){ // Si se cambio el item power
   	power = changes["power"].newValue.state; // Seteo power con el nuevo valor
   }
-}	
+}
+
+function getDomainByUrl(url){
+  return url.match("^(?:http:\/\/|www\.|https:\/\/)([^\/]+)")[1];
+}
 
 function returnRequests() {
 	return requests;
 }
 
 function getRequestAndResponseBody(e) {
- if(tabId == e.tabId && e.url.match(target) != null && power){ // Verifico que el tabId dle request sea igual al tabId de donde estamos parados
+ if(tabId == e.tabId && getDomainByUrl(e.url).match(target) != null && power){ // Verifico que el tabId dle request sea igual al tabId de donde estamos parados
  	requests_tmp = {'method': e.method, 'url': e.url,'requestBody': e }; //Creamos un array dentro del array requests, que tiene como nombre el requestId
  	console.log(e);
 
@@ -63,7 +67,7 @@ function getRequestAndResponseBody(e) {
 }
 
 function getResquestHeaders(e){
-	if(tabId == e.tabId && e.url.match(target) != null && power){ // Verifico que el tabId del request sea igual al tabId de donde estamos parados
+	if(tabId == e.tabId && getDomainByUrl(e.url).match(target) != null && power){ // Verifico que el tabId del request sea igual al tabId de donde estamos parados
 		try{  //Esto lo hago por que solo estoy creando un array a partir del main_frame, es decir el primer request
 			requests_tmp['requestHeaders'] = e.requestHeaders; //Guardamos el request headers en el array requests, en su correspondiente requestId
 			console.log(e);
@@ -75,7 +79,7 @@ function getResquestHeaders(e){
 }
 
 function getResponseHeaders(e){
-	if(tabId == e.tabId && e.url.match(target) != null && power){ // Verifico que el tabId dle request sea igual al tabId de donde estamos parados
+	if(tabId == e.tabId && getDomainByUrl(e.url).match(target) != null && power){ // Verifico que el tabId dle request sea igual al tabId de donde estamos parados
 		try{  //Esto lo hago por que solo estoy creando un array a partir del main_frame, es decir el primer request
 			requests_tmp['responseHeaders'] = e.responseHeaders; //Guardamos el response headers en el array requests, en su correspondiente requestId
 			requests_tmp['statusLine'] = e.statusLine; //get status line
