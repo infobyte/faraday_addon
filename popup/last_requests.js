@@ -27,10 +27,10 @@ function setLimitUrl(url){
 }
 
 function onGot(page) {
-	getData(onData);
+	getData("conf", onData);
 
 	function onData(item){ // Muestro el current workspace
-		$('#current-workspace').html(item.object.workspace);
+		$('#current-workspace').html(item.conf.workspace);
 	}
 
 	if(Object.keys(page.requests).length > 0){
@@ -67,6 +67,14 @@ function onError(error) {
 }
 
 $(document).ready(function () {
+	
+	Power();
+
+	$("#power").bind('change', function(){ //guarda el estado del boton encendido/apagado en el local storage, cada vez que cambia 
+		power = {state: this.checked};
+		browser.storage.local.set({power})
+  			.then(null, onError);
+	});
 
 	var getting = browser.runtime.getBackgroundPage();
 	getting.then(onGot, onError);	

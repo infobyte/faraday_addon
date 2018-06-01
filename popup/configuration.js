@@ -2,13 +2,8 @@ var ws_selected = null;
 var oldState = null;
 var scope = null;
 
-function saveData(object){
-	let setting = browser.storage.local.set({object});
-	setting.then(null, onError);
-}
-
-function getData(event){
-	let gettingItem = browser.storage.local.get();
+function getData(name, event){
+	let gettingItem = browser.storage.local.get(name);
 	gettingItem.then(event, onError);
 }
 
@@ -21,7 +16,8 @@ function saveConfig(page){
 	workspace  = $('#workspace')[0].value;
 	addscope   = $('#addscope')[0].value;
 	conf       = { server: server, workspace: workspace, scope: addscope };
-	saveData(conf);
+	browser.storage.local.set({conf})
+  		.then(null, onError);
 	page.target = escapeRegExp(addscope);
 }
 
@@ -71,25 +67,36 @@ function Connect(page){
 }
 
 function Power(){ // On/Off Faraddon
-	console.log($("#power").val());
+	getData("power", stateButton);
+}
+
+function stateButton(item){
+	if(item.power.state){
+		$("div")[3].className = "toggle btn btn-danger";
+	}
+	else{
+		$("div")[3].className = "toggle btn btn-default off";
+	}
 }
 
 function onSuccessConfig(page){
-	getData(onGot);
+	getData("conf", onGot);
 	
 	setInterval(function(){
-		var currentState = page.info();
-		if (currentState != oldState) {
-			oldState = currentState;
-			getData(onGot);
+		if(page.faraday_api != null){ //Verifica si se seteo el servidor antes de hacer el checkeo
+			var currentState = page.info();
+			if (currentState != oldState) {
+				oldState = currentState;
+				getData("conf", onGot);
+			}
 		}
 	}, 2000); //Checkea el estado del servidor cada 2 seg, si se cae vuelve a cargar
 
 	function onGot(item){
-		$('#server').val(item.object.server);
-		scope = item.object.scope;
+		$('#server').val(item.conf.server);
+		scope = item.conf.scope;
 		page.target = escapeRegExp(scope);
-  		ws_selected = item.object.workspace;
+  		ws_selected = item.conf.workspace;
 		if(ws_selected != null){
 			Connect(page);
 		}

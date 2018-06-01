@@ -97,6 +97,7 @@ function getUrlParams(){
 }
 
 function sendToFaraday(page){
+	var message = null;
 	host_id = page.createHost(request.ip, getHost(), '');
 	if(!host_id){
     	message = alerts.internalErrorServer;
@@ -157,7 +158,7 @@ function autoCompleteInputs(vuln_name){
 }
 
 function onSuccess(page) {
-	getData(onData);
+	getData("conf", onData);
 
 	$('#faraday_send').bind('click', function(){ 
 		sendToFaraday(page);
@@ -178,16 +179,16 @@ function onSuccess(page) {
 			getData(onData);
 		}
 
-		j_vuln = page.getVulnerabilitiesTemplates();
+		/*j_vuln = page.getVulnerabilitiesTemplates();
 		for(i = 0; i < j_vuln.length; i++){
 			vuln = j_vuln[i].doc;
 			vulnerabilities_names[i] = vuln.name;
 			vulnerabilities[vuln.name] = {'name': vuln.name, 'description': vuln.description, 'resolution': vuln.resolution, 'exploitation': vuln.exploitation, 'references': vuln.refs};
-		}
+		}*/
 
-	}, 2000); //Checkea el estado del servidor cada 2 seg, si se cae vuelve a cargar
+	}, 4000); //Checkea el estado del servidor cada 2 seg, si se cae vuelve a cargar
 
-	$( function() {
+	/*$( function() {
     
     $( "#tags" ).autocomplete({
       source: vulnerabilities_names,
@@ -197,17 +198,20 @@ function onSuccess(page) {
         autoCompleteInputs(ui.item.value);
     		}
     	});
-  	} );
+  	} );*/
 
 	function onData(item){
 
 		try{
-			if(page.checkIsDataIsEmpty(item.object.server, item.object.workspace)){
+			if(page.checkIsDataIsEmpty(item.conf.server, item.conf.workspace)){
 
-				page.faraday_api = item.object.server + '/_api';
-				page.workspace 	 = item.object.workspace;
-	
-				if(page.info()){
+				page.faraday_api = item.conf.server + '/_api';
+				page.workspace 	 = item.conf.workspace;
+
+				state_info = page.info();
+				//estadoAnterior = state_info;
+	            //alert(state_info);
+				if(state_info){
 					$('#header-message').html('');
 					enableInputs();
 					if(!page.checkIsWorkspaceIsValid()){
@@ -217,6 +221,7 @@ function onSuccess(page) {
 				}
 				else{
 					disableInputs(alerts.internalErrorServer2); // Servidor caido o no esta logueado
+					alert("Aca esta la papa");
 					$('#message').html('');
 				}
 

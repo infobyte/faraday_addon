@@ -14,17 +14,18 @@ function post(data, path){ // Post con ajax
   	xhttp.withCredentials = true;
   	//xhttp.timeout = 10000; // Timeout de 10 segundos
   	xhttp.setRequestHeader("User-Agent", "Faraddon");
-  	xhttp.setRequestHeader("Content-type", "application/json");
+  	xhttp.setRequestHeader("Content-Type", "application/json");
   	xhttp.send(JSON.stringify(data));
   	return xhttp.responseText;
 }
 
 function get(path){ // Get con ajax
   	xhttp.open("GET", faraday_api + path, false);
+  	console.log(faraday_api + path);
   	xhttp.withCredentials = true;
  	//xhttp.timeout = 20000; // Timeout de 10 segundos
   	xhttp.setRequestHeader("User-Agent", "Faraddon");
-  	xhttp.setRequestHeader("Content-type", "application/json");
+  	xhttp.setRequestHeader("Content-Type", "application/json");
   	xhttp.send();
   	return xhttp.responseText;
 }
@@ -141,14 +142,18 @@ function getVulnerabilitiesTemplates(){
 }
 
 function info(){ // Checkea el estado de faraday server
+	var ra = null;
 	try{
 		ra = JSON.parse(get('/v2/info'));
-		if(ra['Faraday Server'] == 'Running'){
+		if(ra['Faraday Server'] === 'Running'){
+			console.log(ra);
 			return true;
 		}
+	
 	}
-	catch{
-		//console.log(err);
+	catch(error){
+		console.log("Entro en el catch "+error);
+		console.log(ra);
 		return false;
 	}	
 
@@ -215,13 +220,13 @@ function  createVuln(name, vuln_data, description, resolution, easeofresolution,
 		vuln = JSON.parse(addVuln(name, vuln_data, description, resolution, easeofresolution, request, response, severity, service_id, method, path, website, params, refs));
 	}
 	catch{
-		return alert.internalErrorServer;
+		return alerts.internalErrorServer;
 	}	
 	try{
     	message = vuln.message.indexOf('Existing value for unique columns') == 0 ? vuln.message : vuln.message;
     	return '<div class="alert alert-danger"><strong>ERROR! </strong>' + message + '</div>';
   	}
 	catch{
-    	return alert.messageAddVuln;
+    	return alerts.messageAddVuln;
 	}
 }
