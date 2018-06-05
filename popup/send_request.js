@@ -222,7 +222,6 @@ function onSuccess(page) {
 				}
 				else{
 					disableInputs(alerts.internalErrorServer2); // Servidor caido o no esta logueado
-					alert("Aca esta la papa");
 					$('#message').html('');
 				}
 
