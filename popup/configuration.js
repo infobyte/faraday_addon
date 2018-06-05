@@ -72,10 +72,10 @@ function Power(){ // On/Off Faraddon
 
 function stateButton(item){
 	if(item.power.state){
-		$("div")[3].className = "toggle btn btn-danger";
+		$('#power').bootstrapToggle('on');
 	}
 	else{
-		$("div")[3].className = "toggle btn btn-default off";
+		$('#power').bootstrapToggle('off');
 	}
 }
 
