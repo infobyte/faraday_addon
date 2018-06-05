@@ -14,6 +14,12 @@
 
 */
 
+//BUGS
+/*
+- Problema con el boton de encendido, hay que tocarlo dos veces para que quede en off
+- Se sigue rompiendo la conexion cuando buscas un template
+*/
+
 var target = "";
 var urls = "*://*/*";
 var requests = {};
