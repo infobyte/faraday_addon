@@ -1,7 +1,5 @@
 // Faraday api connections
 
-var xhttp = new XMLHttpRequest();
-
 var alerts = {'internalErrorServer': '<div class="alert alert-danger"><strong>ERROR!</strong> An internal error occurred on the server, make sure you have logged in or are still active.</div>',
 			  'messageAddVuln': '<div class="alert alert-success"><strong>Success!</strong> The vulnerability has been added to Faraday.</div>',
 			 };
@@ -10,6 +8,7 @@ var faraday_api = null;
 var workspace 	= null;
 
 function post(data, path){ // Post con ajax
+    var xhttp = new XMLHttpRequest();
     xhttp.open("POST", faraday_api + path, false);
   	xhttp.withCredentials = true;
   	//xhttp.timeout = 10000; // Timeout de 10 segundos
@@ -20,6 +19,7 @@ function post(data, path){ // Post con ajax
 }
 
 function get(path){ // Get con ajax
+  	var xhttp = new XMLHttpRequest();
   	xhttp.open("GET", faraday_api + path, false);
   	console.log(faraday_api + path);
   	xhttp.withCredentials = true;
