@@ -1,25 +1,3 @@
-// FALTA:
-
-/*
-- Boton off/onn funcionalidad
-- Agregar buscador de templates y que autocomplete los campos al dar click - OK
-- Ordenar requests, mostrar los ultimos arriba - OK
-- Mejorar tiempo real, que se muestre lo que escribe mientras recarga - no era necesario, gracias a cesar
-- Agregar tiempo real a los requests
-- Mostrar los ultimos 15 requests en la ventana del icono - OK
-- Agregar mas data a la vuln (method, params, website, path, reference si la hay etc) - OK
-- Ordenar un poco el codigo
-  - Mensajes de error en un array
-  - Pasar los mensajes de error a ingles
-
-*/
-
-//BUGS
-/*
-- Problema con el boton de encendido, hay que tocarlo dos veces para que quede en off
-- Se sigue rompiendo la conexion cuando buscas un template
-*/
-
 var target = "";
 var urls = "*://*/*";
 var requests = {};
