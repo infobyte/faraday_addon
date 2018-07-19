@@ -30,7 +30,13 @@ function onGot(page) {
 	getData("conf", onData);
 
 	function onData(item){ // Muestro el current workspace
-		$('#current-workspace').html(item.conf.workspace);
+		try{
+			current_workspace = item.conf.workspace;
+			$('#current-workspace').html(current_workspace);
+		}
+		catch{
+			$('#current-workspace').html('No workspace was selected');
+		}
 	}
 
 	if(Object.keys(page.requests).length > 0){
