@@ -227,7 +227,7 @@ function onSuccess(page) {
 
 			}
 		}	
-		catch{
+		catch(err){
 			disableInputs(alerts.noConfigData); // No se seteó data en la config
 
 		}

@@ -58,7 +58,7 @@ function getResquestHeaders(e){
 			requests_tmp['requestHeaders'] = e.requestHeaders; //Guardamos el request headers en el array requests, en su correspondiente requestId
 			console.log(e);
 		}
-		catch{
+		catch(err){
 			return false;
 		}
 	}
@@ -72,7 +72,7 @@ function getResponseHeaders(e){
 			requests_tmp['ip'] = e.ip // get ip
 			requests_tmp['protoAndversion'] = e.statusLine.split(' ')[0]; // HTTP/version
 }
-		catch{
+		catch(err){
 			return false;
 	    }
     }

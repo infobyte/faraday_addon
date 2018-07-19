@@ -34,7 +34,7 @@ function onGot(page) {
 			current_workspace = item.conf.workspace;
 			$('#current-workspace').html(current_workspace);
 		}
-		catch{
+		catch(err){
 			$('#current-workspace').html('No workspace was selected');
 		}
 	}

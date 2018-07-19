@@ -136,7 +136,7 @@ function getVulnerabilitiesTemplates(){
 		j = JSON.parse(get('/v2/vulnerability_template/'));
 		return j.rows;
 	}
-	catch{
+	catch(err){
 		return false;
 	}	
 }
@@ -173,7 +173,7 @@ function checkIsWorkspaceIsValid(){
 		JSON.parse(get('/v2/ws/' + workspace + '/'));
 		return true;
 	}
-	catch{
+	catch(err){
 		return false;
 	}
 }
@@ -182,14 +182,14 @@ function createHost(ip, hostname, os){
 	try{
 		host = JSON.parse(addHost(ip, hostname, os));
 	}
-	catch{
+	catch(err){
 		return false;
 	}	
 	try{
     	host_id = host.message.indexOf('Existing value for unique columns') == 0 ? host.object.id : host.object.id;
     	return host_id;
   	}
-	catch{
+	catch(err){
 		if(host.type == 'Host'){
     		return host.id;
     	}
@@ -201,14 +201,14 @@ function createService(name, port, host_id){
 	try{
 		service = JSON.parse(addService(name, port, host_id));
 	}
-	catch{
+	catch(err){
 		return false; //Si arroja error al parsear el JSON quiere decir que hubo un error interno del servidor
 	}
 	try{
     	service_id = service.message.indexOf('Existing value for unique columns') == 0 ? service.object.id : service.object.id;
     	return service_id;
   	}
-	catch{
+	catch(err){
     	if(service.status == 'open'){
     		return service.id;
     	}	
@@ -219,14 +219,14 @@ function  createVuln(name, vuln_data, description, resolution, easeofresolution,
 	try{
 		vuln = JSON.parse(addVuln(name, vuln_data, description, resolution, easeofresolution, request, response, severity, service_id, method, path, website, params, refs));
 	}
-	catch{
+	catch(err){
 		return alerts.internalErrorServer;
 	}	
 	try{
     	message = vuln.message.indexOf('Existing value for unique columns') == 0 ? vuln.message : vuln.message;
     	return '<div class="alert alert-danger"><strong>ERROR! </strong>' + message + '</div>';
   	}
-	catch{
+	catch(err){
     	return alerts.messageAddVuln;
 	}
 }
