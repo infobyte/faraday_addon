@@ -15,10 +15,13 @@ function saveConfig(page){
 	server	   = $('#server')[0].value;
 	workspace  = $('#workspace')[0].value;
 	addscope   = $('#addscope')[0].value;
-	conf       = { server: server, workspace: workspace, scope: addscope };
+	ifserver   = $('#ifserver')[0].checked;
+	conf       = { server: server, workspace: workspace, scope: addscope, ifserver: ifserver };
 	browser.storage.local.set({conf})
   		.then(null, onError);
-	page.target = escapeRegExp(addscope);
+	page.target   = escapeRegExp(addscope);
+	page.ifserver = ifserver; 
+	page.faraday_server = server;
 }
 
 function onRequestError(error) {
@@ -93,7 +96,9 @@ function onSuccessConfig(page){
 	}, 2000); //Checkea el estado del servidor cada 2 seg, si se cae vuelve a cargar
 
 	function onGot(item){
+		console.log(item.conf);
 		$('#server').val(item.conf.server);
+		$('#ifserver')[0].checked = item.conf.ifserver;
 		scope = item.conf.scope;
 		page.target = escapeRegExp(scope);
   		ws_selected = item.conf.workspace;
