@@ -4,7 +4,6 @@ var requests = {};
 var tabId = 0;
 var requests_tmp = {};
 var power = false;
-var ifserver = false;
 var faraday_server = "";
 
 

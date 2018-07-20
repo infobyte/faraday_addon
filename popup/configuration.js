@@ -15,12 +15,10 @@ function saveConfig(page){
 	server	   = $('#server')[0].value;
 	workspace  = $('#workspace')[0].value;
 	addscope   = $('#addscope')[0].value;
-	ifserver   = $('#ifserver')[0].checked;
-	conf       = { server: server, workspace: workspace, scope: addscope, ifserver: ifserver };
+	conf       = { server: server, workspace: workspace, scope: addscope };
 	browser.storage.local.set({conf})
   		.then(null, onError);
 	page.target   = escapeRegExp(addscope);
-	page.ifserver = ifserver; 
 	page.faraday_server = server;
 }
 
@@ -98,7 +96,6 @@ function onSuccessConfig(page){
 	function onGot(item){
 		console.log(item.conf);
 		$('#server').val(item.conf.server);
-		$('#ifserver')[0].checked = item.conf.ifserver;
 		scope = item.conf.scope;
 		page.target = escapeRegExp(scope);
   		ws_selected = item.conf.workspace;
