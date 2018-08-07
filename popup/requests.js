@@ -45,8 +45,8 @@ function onGot(page) {
 			for (const key of Object.keys(page.requests).reverse()) {
 				$("#resume").append(
 					$("<tr>").append($("<td>").text(page.requests[key].method))
-						.append($("<td>").html('<a target="_blank" href="' + page.requests[key].url + '">' + page.requests[key].url + '</a>'))
-						.append($("<td>").append(
+						.append($("<td>").html('<a target="_blank" href="' + page.requests[key].url + '">' + setLimitUrl(page.requests[key].url, 100) + '</a>'))
+						.append($("<td align=\"right\">").append(
 								$("<button>",{class: "btn btn-default btn-sm"}).append($("<i>",{class:"fa fa-send"})).click(
 								function (event) { sendRequestAndResponse(key); })
 							)

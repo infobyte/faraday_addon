@@ -27,6 +27,15 @@ function onRequestError(error) {
 	console.log(error);
 }
 
+function setLimitUrl(url, length){
+	if (url.length > length){
+		return url.substring(0, length) + "...";
+	}
+	else{
+		return url;
+	}
+}
+
 function escapeRegExp(string){
     return string.replace(/([.+?^${}()|\[\]\/\\])/g, "\\$1").replace(/\*/g, "\.\*");
 }

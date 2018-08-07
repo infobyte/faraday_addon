@@ -17,15 +17,6 @@ function sendRequestAndResponse(requestId) {
 
 }
 
-function setLimitUrl(url){
-	if (url.length > 50){
-		return url.substring(0, 50) + "...";
-	}
-	else{
-		return url;
-	}
-}
-
 function onGot(page) {
 	getData("conf", onData);
 
@@ -42,14 +33,14 @@ function onGot(page) {
 	if(Object.keys(page.requests).length > 0){
 
 		count = 0;
-		$('#resume-table').html('<table id="resume" class="table table-striped"><thead><tr><th>Method</th><th>Url</th><th>Actions</th></tr></thead><tbody>');
+		$('#resume-table').html('<table id="resume" class="table table-striped"><thead><tr><th>METHOD</th><th>URL</th><th>ACTIONS</th></tr></thead><tbody>');
 
 		for (const key of Object.keys(page.requests).reverse()) {
 			count += 1;
 			$("#resume").append(
 				$("<tr>").append($("<td>").text(page.requests[key].method))
-					.append($("<td>").html('<a target="_blank" href="' + page.requests[key].url + '">' + setLimitUrl(page.requests[key].url) + '</a>'))
-					.append($("<td>").append(
+					.append($("<td>").html('<a target="_blank" href="' + page.requests[key].url + '">' + setLimitUrl(page.requests[key].url, 45) + '</a>'))
+					.append($("<td align=\"right\">").append(
 							$("<button>",{class: "btn btn-default btn-sm"}).append($("<i>",{class:"fa fa-send"})).click(
 							function (event) { sendRequestAndResponse(key); })
 						)
