@@ -55,7 +55,7 @@ function Connect(page){
 		$("#message").html('');
 		$("#workspaces-list").html('<label for="comment">Workspaces:</label><select class="form-control" id="workspace">' + options + '</select>');
 		$('#scope').html('<div class="form-group"><label for="comment">Add scope:</label><input class="form-control" id="addscope" type="text" value="" placeholder="Add target to scope"></div>');
-		$("#buttons").html('<button type="button" id="save" class="btn btn-default btn-sm"><i class="fa fa-send"></i>Save</button>');
+		$("#buttons").html('<button type="button" id="save" class="btn btn-default btn-sm"><i class="fa fa-send"></i>&nbsp;Save</button>');
 		$('#save').bind('click', function(){ saveConfig(page);});
 
 		if(scope != null){
