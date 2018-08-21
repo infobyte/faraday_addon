@@ -7,7 +7,7 @@ puede ir directo al requests vulnerable, crear el issue desde el propio addon y 
 
 ## Compatibility
 
-![](images/wiki/firefox-icon.png)
+![](images/wiki/firefox-icon.png =50x50)
 
 ## Getting Started!
 
