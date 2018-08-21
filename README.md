@@ -7,8 +7,7 @@ puede ir directo al requests vulnerable, crear el issue desde el propio addon y 
 
 ## Compatibility
 
-Por el momento Faraddon solo es compatible con **Firefox Quantum**, pero nos encontramos trabajando
-en una version estable para chrome.
+![](images/wiki/firefox-ico.jpg)
 
 ## Getting Started!
 
@@ -43,7 +42,7 @@ Una vez configurado faraddon, activamos el addon para comenzar a capturar los re
 
 ![](images/wiki/4.png)
 
-## Adding a vulnerability to Faraday
+# Adding a vulnerability to Faraday
 
 A partir de ahora todos los requests que se realizen en el navegador seran capturados por el addon, en el siguiente ejemplo se encontro
 un xss en una aplicacion vulnerable, para crear el issue y enviarlo a faraday nos vamos al icono que se encuentra a la derecha del requests vulnerable y le damos click.
@@ -63,8 +62,6 @@ Una vez Completado el issue, lo enviamos a faraday, asi de simple.
 Como podemos ver se agrego una nueva vulnerabilidad en el workspace
 
 ![](images/wiki/8.png)
-
-
 
 
 ## Instalation
