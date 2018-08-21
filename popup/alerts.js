@@ -5,4 +5,4 @@ var alerts = {'noWorkspaces': '<div id="message" class="alert alert-danger">No w
 			  'noConfigData': 'Make sure you have configured the addon correctly.',
 			  'workspaceNoExist': 'The workspace does not exist.',
 			  'internalErrorServer2': 'An internal error occurred on the server, make sure you have logged in or you are still active.',
-			  'noRequestsFound': '<div class="alert alert-info">No requests were found.</div>'};
+			  'noRequestsFound': '<div class="alert alert-info">No requests found.</div>'};

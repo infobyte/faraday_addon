@@ -26,7 +26,7 @@ function onGot(page) {
 			$('#current-workspace').html(current_workspace);
 		}
 		catch(err){
-			$('#current-workspace').html('No workspace was selected');
+			$('#current-workspace').html('No workspace selected');
 		}
 	}
 

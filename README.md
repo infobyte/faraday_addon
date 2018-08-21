@@ -14,9 +14,15 @@ en una version estable para chrome.
 
 Para comenzar a usar faraddon una vez instalado, lo primero es iniciar session en faraday
 
+![](images/wiki/1.png)
+
 Una vez estemos logueados, nos vamos al icono del addon y clickeamos en la ranura de configuracion sobre la esquina superior derecha.
 
+![](images/wiki/2.png)
+
 Solo agregar la url del servidor y dar click en Connect
+
+![](images/wiki/3.png)
 
 La url debe tener el siguiente formato: protocol://ip:port
 
@@ -35,6 +41,7 @@ El scope soporta expresiones regulares, por ejemplo, si quisieramos recolectar l
 
 Una vez configurado faraddon, activamos el addon para comenzar a capturar los requests.
 
+![](images/wiki/4.png)
 
 
 ## Instalation
