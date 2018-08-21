@@ -34,14 +34,37 @@ Si queremos establecer un scope, para que faraddon solo capture los request de u
 
 dominio.com
 
-El scope soporta expresiones regulares, por ejemplo, si quisieramos recolectar los requests de todos los subdominios de google
+El scope soporta expresiones regulares, por ejemplo, si quisieramos recolectar los requests de todos los subdominios de faradaysec.com
 
-*.google.com
+*.faradaysec.com
 
 
 Una vez configurado faraddon, activamos el addon para comenzar a capturar los requests.
 
 ![](images/wiki/4.png)
+
+## Adding a vulnerability to Faraday
+
+A partir de ahora todos los requests que se realizen en el navegador seran capturados por el addon, en el siguiente ejemplo se encontro
+un xss en una aplicacion vulnerable, para crear el issue y enviarlo a faraday nos vamos al icono que se encuentra a la derecha del requests vulnerable y le damos click.
+
+![](images/wiki/5.png)
+
+Esto nos lleva a un formulario donde tendremos que rellenar los datos necesarios para enviar la informacion. Tenemos la posibilidad de usar
+los templates de vulnerabilidades que se encuentren cargados en el servidor de faraday, con solo escribir el nombre de una vulnerabilidad
+dentro del campo vulnerabilities templates.
+
+![](images/wiki/6.png)
+
+Una vez Completado el issue, lo enviamos a faraday, asi de simple.
+
+![](images/wiki/7.png)
+
+Como podemos ver se agrego una nueva vulnerabilidad en el workspace
+
+![](images/wiki/8.png)
+
+
 
 
 ## Instalation
