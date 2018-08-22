@@ -27,3 +27,7 @@
     border-color: #adadad !important;
 
 }
+
+a:link{
+    text-decoration:none;
+}
