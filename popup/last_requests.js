@@ -33,7 +33,7 @@ function onGot(page) {
 	if(Object.keys(page.requests).length > 0){
 
 		count = 0;
-		$('#resume-table').html('<table id="resume" class="table table-striped"><thead><tr><th>Method</th><th>Url</th><th class="text-right">Actions</th></tr></thead><tbody>');
+		$('#resume-table').html('<table id="resume" class="table table-striped"><thead><tr><th>Method</th><th>URL</th><th class="text-right">Actions</th></tr></thead><tbody>');
 
 		for (const key of Object.keys(page.requests).reverse()) {
 			count += 1;
