@@ -1,0 +1,29 @@
+.myclass {
+    padding-bottom: 3px;
+    margin: -20px 0 0px !important;
+    border-bottom: 1px solid #eee;
+}
+.h1new {
+  font-size: 28px !important;
+}
+
+.btn-default {
+
+    color: #FFF !important;
+    background-color: #428bca !important;
+    border-color: #ccc !important;
+}
+.btn:hover {
+
+    color: #FFF !important;
+    background-color: #3174ae !important;
+    text-decoration: none !important;
+
+}
+.btn-default:hover {
+
+    color: #FFF !important;
+    background-color: #3174ae !important;
+    border-color: #adadad !important;
+
+}
