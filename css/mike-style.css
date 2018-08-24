@@ -31,3 +31,19 @@
 a:link{
     text-decoration:none;
 }
+
+.link_menu {
+  font-size: 23px !important;
+  padding-top: 14px !important;
+  color: #7f878f !important;
+  }
+  .link_menu:hover {
+  font-size: 23px !important;
+  padding-top: 14px !important;
+  color: #4d5257 !important;
+  }
+  .spacer {
+  color: #fff !important;
+  font-size: 15px !important;
+  width: 15px !important;
+  }

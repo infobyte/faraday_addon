@@ -1,78 +1,73 @@
 ## About
 
-**Faraddon** es un simple addon para reportar vulnerabilidades desde el propio browser a tu servidor de faraday. Faraddon se
-encarga de capturar los requests que viajan a travez del navegador y provee la opcion de accederlos como si se tratasen de una vulnerabilidad.
-De esta manera el pentester no tiene que preocuparse del tedioso proceso de ingresar los datos referentes a una vuln a mano, si no que
-puede ir directo al requests vulnerable, crear el issue desde el propio addon y enviarlo a faraday directamente.	
+**Faraday Addon** is a simple addon for automate reporting vulnerabilities through the browsed to your own Faraday instance. Faraddon intercepts every single request from the browser, adding a functionality for accessing each one of them treating them as a vulnerability. In this way, a pentester only has to use the addon to send potential vulnerables requests to Faraday, instead of copy-paste them into the server.
 
 ## Compatibility
 
+By now, Faraddon is only available for Firefox Quantum. We are working for an stable Chrome release.
+
 ![](images/wiki/firefox-icon.png)
+
+## Installation
+
+## For Users
+
+Download and install the last release from Firefox addons repository:
+
+[URL AL REPO DE FIREFOX]
+
+## For Developers
+
+```
+$ git clone [URL REPO GITHUB]
+
+```
+
+* On Firefox searchbox, write **about:debugging**.
+
+* Click this button: **Load Temporary Add-on**
+
+* Select the manifest.json file within the directory you cloned **Faraday Addon**.
+
 
 ## Getting Started!
 
-Para comenzar a usar faraddon una vez instalado, lo primero es iniciar session en faraday
+At first, you must authenticate to your Faraday server.
 
 ![](images/wiki/1.png)
 
-Una vez estemos logueados, nos vamos al icono del addon y clickeamos en la ranura de configuracion sobre la esquina superior derecha.
+Once logged in, go to settings.
 
 ![](images/wiki/2.png)
 
-Solo agregar la url del servidor y dar click en Connect
+Just add the Faraday server's URL and click on Connect. (The URL must have this format [protocol]://[ip/domain]:[port])
 
 ![](images/wiki/3.png)
 
-La url debe tener el siguiente formato: protocol://ip:port
+If your settings are right, you should see your workspaces. Click the workspace you want and save your settings.
 
-Si todo esta saliendo bien, deberias ver la lista de tus workspaces.
-
-Una vez seleccionado el workspace damos click en save.
-
-Si queremos establecer un scope, para que faraddon solo capture los request de un dominio especifico:
-
-dominio.com
-
-El scope soporta expresiones regulares, por ejemplo, si quisieramos recolectar los requests de todos los subdominios de faradaysec.com
+Faraday Addon also supports setting scopes using regular expressions, just allowing capturing certaing requests. For example, if you only want to capture every faradaysec.com subdomains:
 
 *.faradaysec.com
 
-
-Una vez configurado faraddon, activamos el addon para comenzar a capturar los requests.
+Now you are ready for capturing requests with Faraday Addon.
 
 ![](images/wiki/4.png)
 
 # Adding a vulnerability to Faraday
 
-A partir de ahora todos los requests que se realizen en el navegador seran capturados por el addon, en el siguiente ejemplo se encontro
-un xss en una aplicacion vulnerable, para crear el issue y enviarlo a faraday nos vamos al icono que se encuentra a la derecha del requests vulnerable y le damos click.
+If you had set up everything OK, you will see every request going through Faraday Addon. Imagine that you found a XSS and you want to send it to Faraday. For creating a new issue, click in the icon next to the vulnerable request:
 
 ![](images/wiki/5.png)
 
-Esto nos lleva a un formulario donde tendremos que rellenar los datos necesarios para enviar la informacion. Tenemos la posibilidad de usar
-los templates de vulnerabilidades que se encuentren cargados en el servidor de faraday, con solo escribir el nombre de una vulnerabilidad
-dentro del campo vulnerabilities templates.
+A form will pop up, where you should complete it with all the information about the issue. If you have 'Vulnerability Templates' previously uploaded to Faraday, this process will be faster.
 
 ![](images/wiki/6.png)
 
-Una vez Completado el issue, lo enviamos a faraday, asi de simple.
+Once completed, send it to Faraday.
 
 ![](images/wiki/7.png)
 
-Como podemos ver se agrego una nueva vulnerabilidad en el workspace
+You can check Faraday server for your new vulnerability.
 
 ![](images/wiki/8.png)
-
-
-## Instalation
-
-```
-$ git clone https://majinbuu.infobyte.lan/fedef/faraddon.git
-
-```
-
-* En la barra de busqueda de Firefox escriba **about:debugging**.
-
-* Click en el boton **Load Temporary Add-on**
-
-* Seleccione cualquier fichero dentro del directorio donde ha clonado **Faraddon**.

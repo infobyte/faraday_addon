@@ -3,11 +3,12 @@
 	<head>
 		<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval';">
 		<script src="../js/jquery.min.js"></script>
+		<script src="../js/lcswitch/lc_switch.js"></script>
+        <link rel="stylesheet" href="../js/lcswitch/lc_switch.css">
+        <script src="../js/toggle-on-off.js"></script>
 		<link rel="stylesheet" href="../css/bootstrap.min.css">
 		<link rel="stylesheet" href="../css/font-awesome.min.css">
 		<link rel="stylesheet" href="../css/mike-style.css">
-		<link href="../css/bootstrap-toggle.css" rel="stylesheet">
-		<script src="../js/bootstrap-toggle.js"></script>
 		<script src="../js/bootstrap.min.js"></script>
 		<script src="configuration.js"></script>
 		<script src="last_requests.js"></script>
@@ -23,9 +24,8 @@
     			<thead>
     				<tr>
     					<th id="current-workspace"></th>
-    					<th><input data-toggle="toggle" data-onstyle="success" type="checkbox" id="power"></th>
-    					<th></th>
-    					<th class="text-right"><a title="Configuration" target="_blank" class="fa fa-cog" href="configuration.html"></a> <a title="Requests" target="_blank" class="fa fa-align-left" href="requests.html"></a></th>
+    					<th class="text-right spacer"><input type="checkbox" name="check-3" value="6" class="lcs_check lcs_tt1" autocomplete="off"></th>
+    					<th class="text-right"><a title="Configuration" target="_blank" class="fa fa-cog  link_menu" href="configuration.html"></a><span class="spacer"> .. </span><a title="Requests" target="_blank" class="fa fa-align-left link_menu" href="requests.html"></a></th>
     				</tr>
     			</thead>
     			<tbody>

@@ -1,7 +1,7 @@
 {
-  "description": "Addon para agregar vulnerabilidades a Faraday desde el propio browser",
+  "description": "Addon to add vulnerabilities to Faraday straight from your browser",
   "manifest_version": 2,
-  "name": "Faraday",
+  "name": "Faraday Addon",
   "version": "1.0",
 
   "permissions": [
@@ -14,6 +14,8 @@
   "icons": {
     "48": "icons/faraday-ico.png"
   },
+
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';",
 
   "browser_action": {
     "default_icon": "icons/faraday-ico.png",

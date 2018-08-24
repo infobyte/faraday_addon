@@ -82,10 +82,10 @@ function Power(){ // On/Off Faraddon
 
 function stateButton(item){
 	if(item.power.state){
-		$('#power').bootstrapToggle('on');
+		$('input').lcs_on();
 	}
 	else{
-		$('#power').bootstrapToggle('off');
+		$('input').lcs_off();
 	}
 }
 

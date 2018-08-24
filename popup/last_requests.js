@@ -67,8 +67,10 @@ $(document).ready(function () {
 	
 	Power();
 
-	$("#power").bind('change', function(){ //guarda el estado del boton encendido/apagado en el local storage, cada vez que cambia 
-		power = {state: this.checked};
+	// triggered each time a field changes status
+	$('body').delegate('.lcs_check', 'lcs-statuschange', function() {
+  		var status = ($(this).is(':checked')) ? true : false;
+  		power = {state: status};
 		browser.storage.local.set({power})
   			.then(null, onError);
 	});
