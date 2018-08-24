@@ -4,7 +4,7 @@
 
 ## Compatibility
 
-By now, Faraddon is only available for Firefox Quantum. We are working for an stable Chrome release.
+By now, Faraddon is only available for **Firefox Quantum**. We are working for an stable **Chrome** release.
 
 ![](images/wiki/firefox-icon.png)
 
@@ -40,15 +40,15 @@ Once logged in, go to settings.
 
 ![](images/wiki/2.png)
 
-Just add the Faraday server's URL and click on Connect. (The URL must have this format [protocol]://[ip/domain]:[port])
+Just add the Faraday server's URL and click on Connect. (The URL must have this format **[protocol]://[ip/domain]:[port]**)
 
 ![](images/wiki/3.png)
 
 If your settings are right, you should see your workspaces. Click the workspace you want and save your settings.
 
-Faraday Addon also supports setting scopes using regular expressions, just allowing capturing certaing requests. For example, if you only want to capture every faradaysec.com subdomains:
+Faraday Addon also supports setting scopes using regular expressions, just allowing capturing certaing requests. For example, if you only want to capture every **faradaysec.com** subdomains:
 
-*.faradaysec.com
+***.faradaysec.com**
 
 Now you are ready for capturing requests with Faraday Addon.
 
@@ -56,11 +56,11 @@ Now you are ready for capturing requests with Faraday Addon.
 
 # Adding a vulnerability to Faraday
 
-If you had set up everything OK, you will see every request going through Faraday Addon. Imagine that you found a XSS and you want to send it to Faraday. For creating a new issue, click in the icon next to the vulnerable request:
+If you had set up everything OK, you will see every request going through Faraday Addon. Imagine that you found a **XSS** and you want to send it to Faraday. For creating a new issue, click in the icon next to the vulnerable request:
 
 ![](images/wiki/5.png)
 
-A form will pop up, where you should complete it with all the information about the issue. If you have 'Vulnerability Templates' previously uploaded to Faraday, this process will be faster.
+A form will pop up, where you should complete it with all the information about the issue. If you have **Vulnerability Templates** previously uploaded to Faraday, this process will be faster.
 
 ![](images/wiki/6.png)
 
