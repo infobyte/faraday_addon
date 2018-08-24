@@ -46,4 +46,8 @@ a:link{
   color: #fff !important;
   font-size: 15px !important;
   width: 15px !important;
+  text-align: right !important;
   }
+  .switcher {
+    width: 60px;
+    }  
