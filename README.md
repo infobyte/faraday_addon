@@ -48,7 +48,7 @@ If your settings are right, you should see your workspaces. Click the workspace 
 
 Faraday Addon also supports setting scopes using regular expressions, just allowing capturing certaing requests. For example, if you only want to capture every **faradaysec.com** subdomains:
 
-***.faradaysec.com**
+** *.faradaysec.com **
 
 Now you are ready for capturing requests with Faraday Addon.
 
