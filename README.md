@@ -1,6 +1,6 @@
 ## About
 
-*Faraday Addon* is a simple addon for automate reporting vulnerabilities through the browsed to your own Faraday instance. Faraddon intercepts every single request from the browser, adding a functionality for accessing each one of them treating them as a vulnerability. In this way, a pentester only has to use the addon to send potential vulnerables requests to Faraday, instead of copy-paste them into the server.
+**Faraday Addon** is a simple addon for automate reporting vulnerabilities through the browsed to your own Faraday instance. Faraddon intercepts every single request from the browser, adding a functionality for accessing each one of them treating them as a vulnerability. In this way, a pentester only has to use the addon to send potential vulnerables requests to Faraday, instead of copy-paste them into the server.
 
 ## Compatibility
 
@@ -14,7 +14,7 @@ By now, Faraddon is only available for Firefox Quantum. We are working for an st
 
 Download and install the last release from Firefox addons repository:
 
-[URL AL REPO DE FIREFOX]
+[Faraday Addon](https://addons.mozilla.org/es/firefox/addon/faraday-addon/)
 
 # For Developers
 
@@ -23,11 +23,11 @@ $ git clone [URL REPO GITHUB]
 
 ```
 
-* On Firefox searchbox, write *about:debugging*.
+* On Firefox searchbox, write **about:debugging**.
 
-* Click this button: *Load Temporary Add-on*
+* Click this button: **Load Temporary Add-on**
 
-* Select the *manifest.json* file within the directory you cloned **Faraday Addon**.
+* Select the **manifest.json** file within the directory you cloned **Faraday Addon**.
 
 
 ## Getting Started!
