@@ -10,13 +10,13 @@ By now, Faraddon is only available for **Firefox Quantum**. We are working for a
 
 ## Installation
 
-# For Users
+### For Users
 
 Download and install the last release from Firefox addons repository:
 
 [Faraday Addon](https://addons.mozilla.org/es/firefox/addon/faraday-addon/)
 
-# For Developers
+### For Developers
 
 ```
 $ git clone [URL REPO GITHUB]
