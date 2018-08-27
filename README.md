@@ -6,7 +6,7 @@
 
 By now, Faraddon is only available for **Firefox Quantum**. We are working for an stable **Chrome** release.
 
-![](images/wiki/firefox-icon.png)
+![Firefox Quantum](images/wiki/firefox-icon.png)
 
 ## Installation
 
