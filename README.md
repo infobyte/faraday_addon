@@ -19,7 +19,7 @@ Download and install the last release from Firefox addons repository:
 ### For Developers
 
 ```
-$ git clone [URL REPO GITHUB]
+$ git clone https://github.com/infobyte/faraday_addon.git
 
 ```
 
