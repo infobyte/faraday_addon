@@ -1,0 +1,29 @@
+{
+  "description": "Addon to add vulnerabilities to Faraday straight from your browser",
+  "manifest_version": 2,
+  "name": "Faraday Addon",
+  "version": "1.0",
+
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "<all_urls>"
+  ], 
+
+  "icons": {
+    "48": "icons/faraday-ico.png"
+  },
+
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';",
+
+  "browser_action": {
+    "default_icon": "icons/faraday-ico.png",
+    "default_title": "Faraday requester",
+    "default_popup": "popup/last_requests.html"
+  },
+
+  "background": {
+    "scripts": ["background.js", "fapi.js"]
+  }
+}
